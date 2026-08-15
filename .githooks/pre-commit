@@ -1,0 +1,10 @@
+#!/bin/sh
+# 이 레포는 d-an0619 계정으로만 커밋 허용
+allowed="195770720+d-an0619@users.noreply.github.com"
+email=$(git var GIT_AUTHOR_IDENT | sed -n 's/.*<\(.*\)>.*/\1/p')
+if [ "$email" != "$allowed" ]; then
+  echo "커밋 거부: author email = $email"
+  echo "허용된 계정: $allowed"
+  echo "고치려면: git config user.email '$allowed'"
+  exit 1
+fi
