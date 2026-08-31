@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Metly Privacy Policy</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 24px;
+      line-height: 1.7;
+      color: #222;
+    }
+    h1 { font-size: 1.8rem; margin-bottom: 4px; }
+    h2 { font-size: 1.2rem; margin-top: 32px; border-bottom: 1px solid #eee; padding-bottom: 6px; }
+    .meta { color: #666; font-size: 0.9rem; margin-bottom: 24px; }
+    a { color: #1a73e8; }
+    .footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid #eee; color: #666; font-size: 0.9rem; }
+    .ko { margin-top: 56px; }
+  </style>
+</head>
+<body>
+
+<h1>Metly Privacy Policy</h1>
+<p class="meta">Last updated: August 31, 2026</p>
+
+<p>
+  Metly has no account, no sign-in and no server of its own. It keeps nothing about you.
+  The only thing it sends anywhere is a weather request to the public aviation weather service,
+  and that request is described in full below.
+</p>
+
+<h2>1. Data collected by the developer</h2>
+<p>
+  <strong>None.</strong> Metly has no account system, no cloud sync and no analytics.
+  It does not collect your name, email address, phone number, contacts, photos or device identifiers,
+  and the developer operates no server that could receive them.
+</p>
+
+<h2>2. What leaves your device</h2>
+<p>
+  Metly reads observations from <a href="https://aviationweather.gov">aviationweather.gov</a>, the Aviation Weather
+  Center of the US National Weather Service. Two kinds of request are made, and nothing else is transmitted:
+</p>
+<ul>
+  <li><strong>Airport identifiers you added</strong> — for example <code>KORD,06C</code>. These are airport codes, not information about you.</li>
+  <li><strong>A coarse box around your location, only if you turn on "Nearest airport"</strong> — the app widens your
+      approximate position into a bounding box roughly one degree of latitude and longitude across (tens of kilometres
+      on a side) and asks which reporting stations fall inside it. Your exact coordinates are never sent, the box is not
+      stored by the app, and it is not sent anywhere except that weather service.</li>
+</ul>
+<p>
+  Requests carry no account, no advertising identifier and no device identifier. Use of the weather service is
+  governed by the policies of the US National Oceanic and Atmospheric Administration.
+</p>
+
+<h2>3. What stays on your device</h2>
+<ul>
+  <li><strong>Your airport list and units</strong> — stored in the app's own container so the widgets can read them.</li>
+  <li><strong>The most recent observation for each airport</strong> — cached so a widget can still show you the last
+      reading, with its age, when the network is gone.</li>
+</ul>
+<p>Both are deleted when you delete the app.</p>
+
+<h2>4. Permissions</h2>
+<ul>
+  <li><strong>Location (while using the app / widgets)</strong> — requested only if you turn on "Nearest airport".
+      It is used to build the bounding box described in section 2 and for nothing else. If you never turn that switch on,
+      Metly never asks for or uses your location.</li>
+</ul>
+<p>You can change this at any time in iOS Settings &rarr; Metly.</p>
+
+<h2>5. Advertising and tracking</h2>
+<p>
+  Metly <strong>shows no ads and contains no analytics or advertising SDKs.</strong>
+  It does not access the advertising identifier (IDFA) and does not ask for App Tracking Transparency permission.
+  Nothing it sends is used to track you across apps or websites.
+</p>
+
+<h2>6. Payment</h2>
+<p>
+  Metly is a one-time paid app with no in-app purchases and no subscription. Payment is handled by Apple through the
+  App Store; the developer never receives your payment details. Purchase and refund handling follows Apple's privacy policy.
+</p>
+
+<h2>7. Data retention and deletion</h2>
+<p>
+  The developer holds no user data, so there is nothing to request the deletion of. Deleting the app removes the
+  airport list, units and cached observations from your device.
+</p>
+
+<h2>8. Children</h2>
+<p>
+  Metly is not directed at children under 13 and collects no personal information from users of any age.
+</p>
+
+<h2>9. Changes to this policy</h2>
+<p>
+  This policy may be updated if the app or applicable law changes. Any change is published on this page.
+</p>
+
+<h2>10. Contact</h2>
+<p>
+  <strong>Email:</strong> <a href="mailto:gogumaa619@gmail.com">gogumaa619@gmail.com</a>
+</p>
+
+<div class="ko" lang="ko">
+  <h2>한국어 요약</h2>
+  <p>
+    Metly는 계정·서버·광고·분석 도구가 없습니다. 개발자가 수집·보관하는 사용자 데이터는 없습니다.
+    앱이 기기 밖으로 보내는 것은 미국 국립기상청 항공기상센터(aviationweather.gov)에 보내는 기상 조회 요청뿐이며,
+    여기에는 사용자가 추가한 공항 식별자가 들어갑니다. 「Nearest airport」를 켠 경우에만 현재 위치를 위도·경도 약 1도
+    크기의 사각형으로 넓혀 그 안의 관측소를 묻습니다 — 정확한 좌표는 전송되지 않고, 그 값은 저장되지도 다른 곳으로
+    보내지지도 않습니다. 공항 목록·단위 설정·마지막 관측값은 기기 안에만 저장되며 앱을 삭제하면 함께 사라집니다.
+    문의: <a href="mailto:gogumaa619@gmail.com">gogumaa619@gmail.com</a>
+  </p>
+</div>
+
+<div class="footer">
+  © 2026 Metly. All rights reserved.
+</div>
+
+</body>
+</html>
