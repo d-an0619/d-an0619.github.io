@@ -1,0 +1,190 @@
+{
+  "schemaVersion": 1,
+  "configVersion": "2026-11-19.1",
+  "minExtensionVersion": "0.3.0",
+  "notice": null,
+  "disabled": false,
+  "urls": {
+    "reviewPage": "/product-reviews/{asin}/?sortBy={sort}&filterByStar={star}&reviewerType=all_reviews",
+    "ajaxPage": "/portal/customer-reviews/ajax/reviews/get/ref={reftag}",
+    "asinPatterns": [
+      "/product-reviews/([A-Z0-9]{10})",
+      "/dp/([A-Z0-9]{10})",
+      "/gp/product/([A-Z0-9]{10})"
+    ]
+  },
+  "paging": {
+    "stateSel": "#cr-state-object",
+    "stateAttr": "data-state",
+    "csrfKey": "reviewsCsrfToken",
+    "csrfHeader": "anti-csrftoken-a2z",
+    "nextSel": "[data-hook='show-more-button']",
+    "nextParamAttr": "data-reviews-state-param",
+    "reftagAttr": "data-reftag",
+    "body": {
+      "reviewerType": "all_reviews",
+      "formatType": "",
+      "mediaType": "",
+      "filterByAge": "",
+      "filterByLanguage": "",
+      "filterByKeyword": "",
+      "pageSize": "10",
+      "scope": "reviewsAjax1"
+    },
+    "countSel": "[data-hook='cr-filter-info-review-rating-count']",
+    "countRegex": "([0-9,]+)\\s+(?:matching\\s+)?customer review"
+  },
+  "traversal": {
+    "stars": [
+      "five_star",
+      "four_star",
+      "three_star",
+      "two_star",
+      "one_star"
+    ],
+    "sorts": [
+      "recent",
+      "helpful"
+    ],
+    "maxPagesPerCombo": 10,
+    "delayMs": {
+      "min": 1500,
+      "max": 4000
+    },
+    "stopAfterEmptyPages": 1,
+    "extraFilters": [
+      {
+        "reviewerType": "avp_only_reviews"
+      },
+      {
+        "mediaType": "media_reviews_only"
+      }
+    ]
+  },
+  "limits": {
+    "freeMaxReviews": 100
+  },
+  "selectors": {
+    "reviewContainer": [
+      "li[data-hook='review']",
+      "[data-hook='review']"
+    ],
+    "fields": {
+      "id": {
+        "from": "container",
+        "attr": "id"
+      },
+      "title": {
+        "sel": [
+          "[data-hook='review-title'] .cr-original-review-content",
+          "[data-hook='review-title'] > span:last-of-type",
+          "[data-hook='review-title']"
+        ],
+        "text": true
+      },
+      "rating": {
+        "sel": [
+          "[data-hook='review-star-rating'] .a-icon-alt",
+          "[data-hook='cmps-review-star-rating'] .a-icon-alt"
+        ],
+        "text": true,
+        "regex": "([0-9.]+) out of",
+        "type": "number"
+      },
+      "dateRaw": {
+        "sel": [
+          "[data-hook='review-date']"
+        ],
+        "text": true
+      },
+      "date": {
+        "from": "dateRaw",
+        "regex": " on (.+)$",
+        "type": "date"
+      },
+      "country": {
+        "from": "dateRaw",
+        "regex": "Reviewed in (?:the )?(.+?) on "
+      },
+      "author": {
+        "sel": [
+          ".a-profile-name"
+        ],
+        "text": true
+      },
+      "verified": {
+        "sel": [
+          "[data-hook='avp-badge']"
+        ],
+        "type": "exists"
+      },
+      "variant": {
+        "sel": [
+          "[data-hook='format-strip']"
+        ],
+        "text": true,
+        "separatorSel": ".a-icon-text-separator",
+        "separator": " | "
+      },
+      "body": {
+        "sel": [
+          "[data-hook='review-body']"
+        ],
+        "text": true,
+        "preserveBreaks": true,
+        "removeSel": [
+          ".video-block"
+        ]
+      },
+      "helpful": {
+        "sel": [
+          "[data-hook='helpful-vote-statement']"
+        ],
+        "text": true,
+        "regex": "^([0-9,]+|One)",
+        "type": "count"
+      },
+      "imageUrls": {
+        "sel": [
+          "[data-hook='review-image-tile']"
+        ],
+        "attr": "src",
+        "multi": true,
+        "replace": [
+          "\\._[A-Z0-9_,]+\\.",
+          "."
+        ]
+      },
+      "videoUrls": {
+        "sel": [
+          "[data-video-url]"
+        ],
+        "attr": "data-video-url",
+        "multi": true
+      }
+    }
+  },
+  "detect": {
+    "loginUrlPattern": "/ap/signin",
+    "loginSelectors": [
+      "form[name='signIn']"
+    ],
+    "captchaSelectors": [
+      "form[action*='validateCaptcha']",
+      "form[action*='/checkpoint/']"
+    ],
+    "captchaTextPatterns": [
+      "Enter the characters you see below",
+      "api-services-support@amazon.com"
+    ],
+    "limitedSelectors": [
+      "[data-hook='request-more-reviews-widget']"
+    ],
+    "noReviewsSelectors": [
+      "[data-hook='no-reviews-found']"
+    ],
+    "sanitySelectors": [
+      "[data-hook='total-review-count']"
+    ]
+  }
+}
